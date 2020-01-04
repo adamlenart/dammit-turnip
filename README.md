@@ -1,2 +1,5 @@
-# aDAM's MInimalist Tool To pUt a ciRcle on LiNkedIn Profile image, or shorter: DAMMIT-TURNIP
+# Dammit, turnip!
+
+A**dam**'s **mi**nimalist **t**ool **t**o p**u**t a ci**r**cle on Li**n**ked**I**n **p**rofile image, or **Dammit,turnip!**.
+
 Python command line tool to place a circle on a LinkedIn profile image
