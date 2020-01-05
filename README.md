@@ -9,8 +9,6 @@ Dammit-turnip requires [Pillow, the friendly PIL (Python Imaging Library) fork b
 
 I have tested dammit-turnip only with Pillow 7.0.0 but earlier versions may work just as well. 
 
-illow is the friendly PIL fork by Alex Clark and Contributors
-
 ## Usage
 
 First, clone the repository.
