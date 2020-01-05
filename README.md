@@ -53,11 +53,16 @@ However, if you would like to skip the interactive questions, you can also run
 ```
 python3 make_circle.py img/turnip.jpg img/fancy_turnip.png -x 600 -y 600 -d 1200 -R 56 -G 16 -B 77 -A 255 -width 30 --resize
 ```
-
 which will render our original image ![old-turnip](img/turnip.jpg)
 
 to
 
 ![new-turnip](img/fancy_turnip.png) 
+
+## FAQ
+
+### How do I know the RGBA components of the color?
+RGBA stands for Red-Green-Blue-Alpha. To identify the values of the respective color channels, you could use a [color picker](https://imagecolorpicker.com/) and set the alpha to 0 (transparent) to 255 (solid) color.
+
 
 
