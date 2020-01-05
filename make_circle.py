@@ -17,7 +17,7 @@ from src import processor
 parser = argparse.ArgumentParser(description='Create a circular image and draw ' +
                                  'a colored circle around its edge.' )
 parser.add_argument('input', help='path to input file')
-parser.add_argument('output', help='path to output file')
+parser.add_argument('output', help='path to output file. The output format must be PNG.')
 parser.add_argument('-x', type=int, help='integer,  x coordinate of the center of the circle. 0 is left.')
 parser.add_argument('-y', type=int, help='integer,  y coordinate of the center of the circle. 0 is top.')
 parser.add_argument('-d', type=int, help='integer,  diameter of the circle in pixels.')
@@ -30,6 +30,8 @@ parser.add_argument('-B', type=int,
 parser.add_argument('-A', type=int,
                     help='integer, A in RGBA color specifications, e.g., 255 in "(150,0,100,255)".')
 parser.add_argument('-width', type=int, help='integer, width of circle line in pixels.')
+parser.add_argument('--resize', action='store_true', help='Add to arguments to resize to 300 x 300 pixels.')
+
 args = parser.parse_args()
 
 ## resize responses
@@ -38,7 +40,6 @@ no = {'no','n'}
 allowed_responses = yes.union(no)
 
 if __name__ == "__main__":
-    print(args)
     print("dammit-turnip 0.1.\n\n")
     print("Make a circle from the input image and color the edge of it.\n")
     
@@ -101,17 +102,22 @@ if __name__ == "__main__":
     ## Make circle
     circle = processor.circle_maker(input_image, (x,y), d, width, (R,G,B,A))
     ## Resize?
-    while True:
-        response = input("\nWe have now a circular shaped image.\n" +
-                         "Resize it to LinkedIn size recommendation (300 x 300)? (yes/no): ").lower()
-        while response not in allowed_responses:
-            response = input("Please respond with 'yes' or 'no': ")
-        if response in yes:
+    if args.resize:
             circle = circle.resize((300,300))
             circle.save(args.output)
-            print("Output is resized and saved.")
-            break
-        elif response in no:
-            circle.save(args.output)
-            print("Output is not resized. Output is saved.")
-            break
+            print("\nOutput is resized and saved.")
+    else:
+        while True:
+            response = input("\nWe have now a circular shaped image.\n" +
+                             "Resize it to LinkedIn size recommendation (300 x 300)? (yes/no): ").lower()
+            while response not in allowed_responses:
+                response = input("Please respond with 'yes' or 'no': ")
+                if response in yes:
+                    circle = circle.resize((300,300))
+                    circle.save(args.output)
+                    print("\nOutput is resized and saved.")
+                    break
+                if response in no:
+                    circle.save(args.output)
+                    print("\nOutput is not resized. Output is saved.")
+                    break
