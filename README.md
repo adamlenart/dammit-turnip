@@ -62,7 +62,7 @@ to
 ## FAQ
 
 ### How do I know the RGBA components of the color?
-RGBA stands for Red-Green-Blue-Alpha. To identify the values of the respective color channels, you could use a [color picker](https://imagecolorpicker.com/) and set the alpha to 0 (transparent) to 255 (solid) color.
+RGBA stands for Red-Green-Blue-Alpha. To identify the values of the respective color channels, you could use a [color picker](https://imagecolorpicker.com/) and set the alpha from 0 (transparent) to 255 (solid) color.
 
 
 
