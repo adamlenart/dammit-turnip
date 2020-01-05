@@ -11,9 +11,14 @@ import argparse
 from PIL import Image
 
 ## own modules
+from src import dialog_action
 from src import processor
 
-## Command line arguments
+###################################################################################
+##                               Options                                         ##
+###################################################################################
+
+## ----------------------- Command line arguments ------------------------------ ##
 parser = argparse.ArgumentParser(description='Create a circular image and draw ' +
                                  'a colored circle around its edge.' )
 parser.add_argument('input', help='path to input file')
@@ -34,10 +39,16 @@ parser.add_argument('--resize', action='store_true', help='Add to arguments to r
 
 args = parser.parse_args()
 
-## resize responses
+## -------------------------- resize options ------------------------------------- ##
 yes = {'yes','y', 'ye'}
 no = {'no','n'}
 allowed_responses = yes.union(no)
+## continue loop below until yes or no arrives 
+CONT = True
+
+#####################################################################################
+##                                   Run                                           ##
+#####################################################################################
 
 if __name__ == "__main__":
     print("dammit-turnip 0.1.\n\n")
@@ -102,22 +113,19 @@ if __name__ == "__main__":
     ## Make circle
     circle = processor.circle_maker(input_image, (x,y), d, width, (R,G,B,A))
     ## Resize?
+    print(args)
     if args.resize:
-            circle = circle.resize((300,300))
-            circle.save(args.output)
-            print("\nOutput is resized and saved.")
+        dialog_action.yes_action(circle, args.output)
     else:
-        while True:
+        while CONT:
             response = input("\nWe have now a circular shaped image.\n" +
                              "Resize it to LinkedIn size recommendation (300 x 300)? (yes/no): ").lower()
+            if response in allowed_responses:
+                dialog_action.response_action(response, yes, no, circle, args.output)
+                break
             while response not in allowed_responses:
                 response = input("Please respond with 'yes' or 'no': ")
-                if response in yes:
-                    circle = circle.resize((300,300))
-                    circle.save(args.output)
-                    print("\nOutput is resized and saved.")
-                    break
-                if response in no:
-                    circle.save(args.output)
-                    print("\nOutput is not resized. Output is saved.")
+                if response in allowed_responses:
+                    dialog_action.response_action(response, yes, no, circle, args.output)
+                    CONT = False
                     break
