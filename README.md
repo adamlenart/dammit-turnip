@@ -1,6 +1,6 @@
 # Dammit, turnip!
 
-A**dam**'s **mi**nimalist **t**ool **t**o p**u**t a ci**r**cle on Li**n**ked**I**n **p**rofile image, or **Dammit, turnip!** for short.
+A**dam**'s **mi**nimalist **t**ool **t**o p**u**t a ci**r**cle on Li**n**ked**I**n **p**rofile image, or **dammit-turnip** for short.
 
 Python command line tool to place a circle on a LinkedIn profile image.
 
@@ -23,7 +23,9 @@ However, if you would like to skip the interactive questions, you can also run
 python3 make_circle.py img/turnip.jpg img/fancy_turnip.png -x 600 -y 600 -d 1200 -R 56 -G 16 -B 77 -A 255 -width 30 --resize
 ```
 
-which will render our original image ![old-turnip](img/turnip.jpg) to ![new-turnip](img/fancy_turnip.png) 
+which will render our original image ![old-turnip](img/turnip.jpg)
+to
+![new-turnip](img/fancy_turnip.png) 
 
 For a complete list of options, run:
 ```
