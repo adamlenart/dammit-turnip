@@ -16,14 +16,17 @@ First, clone the repository.
 git clone https://github.com/adamlenart/dammit-turnip.git
 ```
 
-Then from a terminal window run `make_circle.py`.
+Then in a terminal window run `make_circle.py`.
 
 As a minimum, you will need to specify the input and output file paths, for example
-`python3 make_circle.py img/my_input.jpg img/my_output.png` for an input image file saved `dammit-turnip\img`.
+```
+python3 make_circle.py img/my_input.jpg img/my_output.png
+``` 
+for an input image file saved in `dammit-turnip\img`.
 
-First, dammit-turnip tells you the dimension of the input image so that you can think about where to best place the circle on it.
+After this, dammit-turnip tells you the dimension of the input image so that you can think about where to best place the circle on it.
 
-After this, dammit-turnip will ask about what the coordinates for the center of the circle that you wish to draw, the diameter of the circle, the color of the circle and the width of the circle should be.
+Then dammit-turnip will ask about what the coordinates for the center of the circle that you wish to draw, the diameter of the circle, the color of the circle and the width of the circle should be.
 
 ### Options
 ```
