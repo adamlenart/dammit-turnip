@@ -7,6 +7,8 @@ Python command line tool to place a circle on a LinkedIn profile image.
 ## Requirements
 Dammit-turnip requires the [Pyhton Imaging Library (Pillow)](https://pillow.readthedocs.io) which you can install either by `pip` [(instructions here)](https://pillow.readthedocs.io/en/stable/installation.html#basic-installation) or `conda` [(instructions here)](https://anaconda.org/anaconda/pillow).
 
+I have tested dammit-turnip only with Pillow 7.0.0 but earlier versions may work just as well. 
+
 ## Usage
 
 First, clone the repository.
