@@ -35,7 +35,8 @@ parser.add_argument('-B', type=int,
 parser.add_argument('-A', type=int,
                     help='integer, A in RGBA color specifications, e.g., 255 in "(150,0,100,255)".')
 parser.add_argument('-width', type=int, help='integer, width of circle line in pixels.')
-parser.add_argument('--resize', action='store_true', help='Add to arguments to resize to 300 x 300 pixels.')
+parser.add_argument('--resize', action='store_true', help='Resize to 300 x 300 pixels.')
+parser.add_argument('--no-resize', action='store_true', help='Do not resize the picture.')
 
 args = parser.parse_args()
 
@@ -115,6 +116,8 @@ if __name__ == "__main__":
     ## Resize?
     if args.resize:
         dialog_action.yes_action(circle, args.output)
+    elif args.no_resize:
+        dialog_action.no_action(circle, args.output)
     else:
         while CONT:
             response = input("\nWe have now a circular shaped image.\n" +
