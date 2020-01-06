@@ -113,7 +113,6 @@ if __name__ == "__main__":
     ## Make circle
     circle = processor.circle_maker(input_image, (x,y), d, width, (R,G,B,A))
     ## Resize?
-    print(args)
     if args.resize:
         dialog_action.yes_action(circle, args.output)
     else:
