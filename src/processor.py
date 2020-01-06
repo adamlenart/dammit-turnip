@@ -85,7 +85,6 @@ def circle_maker(image, center, diameter, width="auto", color=(0,0,0,255)):
     ## cut the circle from the square
     circular_image = circle_cutter(outer_square)
     ## draw the outline of the circle
-    print(circular_image.mode)
     circle = ImageDraw.Draw(outer_square)
     circle.ellipse((0,0) + outer_square.size, width=width, outline=color)
     return circular_image
