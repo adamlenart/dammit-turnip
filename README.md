@@ -24,7 +24,7 @@ As a minimum, you will need to specify the input and output file paths, for exam
 ```
 python3 make_circle.py img/my_input.jpg img/my_output.png
 ``` 
-for an input image file saved in `dammit-turnip\img`.
+for an input image file saved in `dammit-turnip/img`.
 
 After this, dammit-turnip tells you the dimension of the input image so that you can think about where to best place the circle on it.
 
@@ -35,7 +35,7 @@ Then dammit-turnip will ask about what the coordinates for the center of the cir
 python3 make_circle.py --help
 
 usage: make_circle.py [-h] [-x X] [-y Y] [-d D] [-R R] [-G G] [-B B] [-A A] [-width WIDTH]
-                      [--resize]
+                      [--resize] [--no-resize]
                       input output
 
 Create a circular image and draw a colored circle around its edge.
@@ -54,7 +54,8 @@ optional arguments:
   -B B          integer, B in RGBA color specifications, e.g., 100 in "(150,0,100,255)".
   -A A          integer, A in RGBA color specifications, e.g., 255 in "(150,0,100,255)".
   -width WIDTH  integer, width of circle line in pixels.
-  --resize      Add to arguments to resize to 300 x 300 pixels.
+  --resize      Resize to 300 x 300 pixels.
+  --no-resize   Do not resize the picture.
 ```
 
 ### Skip interactive mode to save time
