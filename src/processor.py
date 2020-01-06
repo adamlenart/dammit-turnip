@@ -77,12 +77,15 @@ def circle_maker(image, center, diameter, width="auto", color=(0,0,0,255)):
     """
     if width == "auto":
         width = int(diameter / 100)
+    if image.mode != 'RGBA':
+        image = image.convert('RGBA')
     ## create outer square for the circle
     outer_square_coords = square_coordinates_getter(image, center, diameter)
     outer_square = image.crop(outer_square_coords)
     ## cut the circle from the square
     circular_image = circle_cutter(outer_square)
     ## draw the outline of the circle
+    print(circular_image.mode)
     circle = ImageDraw.Draw(outer_square)
     circle.ellipse((0,0) + outer_square.size, width=width, outline=color)
     return circular_image
